@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi/iconTextWidget.dart';
-import 'package:bmi/reusableCardWidget.dart';
+import 'package:bmi/icon_text_widget.dart';
+import 'package:bmi/reusable_card_widget.dart';
 
 const bottomContanierHeight = 80.0;
-const Color containerColor = Colors.brown;
+Color cardColor = Colors.brown.shade700;
+Color activeCardColor = Colors.brown.shade600;
+Color inActiveCardColor = Colors.brown.shade700;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -15,11 +17,33 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inActiveCardColor;
+  Color femaleCardColor = inActiveCardColor;
+  void updateCardColor(gender) {
+    if (gender == 1) {
+      //male card pressed
+      if (maleCardColor == inActiveCardColor) {
+        maleCardColor = activeCardColor;
+      } else {
+        maleCardColor = inActiveCardColor;
+      }
+    }
+
+    // female card pressed
+    if (gender == 2) {
+      if (femaleCardColor == inActiveCardColor) {
+        femaleCardColor = activeCardColor;
+      } else {
+        femaleCardColor = inActiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: containerColor,
+        backgroundColor: cardColor,
         title: const Text(
           'BMI Calculator',
           style: TextStyle(
@@ -34,23 +58,37 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 Expanded(
-                  child: ReusableCard(
-                    colors: containerColor,
-                    cardChild: ReusableIconTextWidget(
-                      iconImager: LineIcons.male,
-                      iconLabel: 'MALE',
+                  child: GestureDetector(
+                    child: ReusableCard(
+                      colors: maleCardColor,
+                      cardChild: const ReusableIconTextWidget(
+                        iconImager: LineIcons.male,
+                        iconLabel: 'MALE',
+                      ),
                     ),
+                    onTap: () {
+                      setState(() {
+                        updateCardColor(1);
+                      });
+                    },
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    colors: containerColor,
-                    cardChild: ReusableIconTextWidget(
-                      iconImager: LineIcons.female,
-                      iconLabel: 'FEMALE',
+                  child: GestureDetector(
+                    child: ReusableCard(
+                      colors: femaleCardColor,
+                      cardChild: const ReusableIconTextWidget(
+                        iconImager: LineIcons.female,
+                        iconLabel: 'FEMALE',
+                      ),
                     ),
+                    onTap: () {
+                      setState(() {
+                        updateCardColor(2);
+                      });
+                    },
                   ),
                 ),
               ],
@@ -58,7 +96,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colors: containerColor,
+              colors: cardColor,
               cardChild: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -76,7 +114,7 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    colors: containerColor,
+                    colors: cardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -88,7 +126,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colors: containerColor,
+                    colors: cardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -102,7 +140,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: containerColor,
+            color: cardColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity, //value equal to full width of screen
             height: bottomContanierHeight,
