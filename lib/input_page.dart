@@ -8,6 +8,10 @@ const bottomContanierHeight = 80.0;
 Color cardColor = Colors.brown.shade700;
 Color activeCardColor = Colors.brown.shade600;
 Color inActiveCardColor = Colors.brown.shade700;
+enum GenderType {
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -19,8 +23,9 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Color maleCardColor = inActiveCardColor;
   Color femaleCardColor = inActiveCardColor;
-  void updateCardColor(gender) {
-    if (gender == 1) {
+
+  void updateCardColor(GenderType selectedGender) {
+    if (selectedGender == GenderType.male) {
       //male card pressed
       if (maleCardColor == inActiveCardColor) {
         maleCardColor = activeCardColor;
@@ -31,7 +36,7 @@ class _InputPageState extends State<InputPage> {
     }
 
     // female card pressed
-    if (gender == 2) {
+    if (selectedGender == GenderType.female) {
       if (femaleCardColor == inActiveCardColor) {
         femaleCardColor = activeCardColor;
         maleCardColor = inActiveCardColor;
@@ -72,7 +77,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       setState(() {
-                        updateCardColor(1);
+                        updateCardColor(GenderType.male);
                       });
                     },
                   ),
@@ -88,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       setState(() {
-                        updateCardColor(2);
+                        updateCardColor(GenderType.female);
                       });
                     },
                   ),
