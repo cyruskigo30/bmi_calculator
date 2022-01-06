@@ -24,7 +24,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: cardColor,
+        backgroundColor: kCardColor,
         title: const Text(
           'BMI Calculator',
           style: TextStyle(
@@ -48,8 +48,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.male
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: LineIcons.male,
                       iconLabel: 'MALE',
@@ -64,8 +64,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.female
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: LineIcons.female,
                       iconLabel: 'FEMALE',
@@ -78,13 +78,13 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               onPress: () {},
-              colors: cardColor,
+              colors: kCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
                     'DATA',
-                    style: labelTextStyle,
+                    style: kLabelTextStyle,
                   ),
                 ],
               ),
@@ -96,7 +96,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colors: cardColor,
+                    colors: kCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -109,7 +109,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colors: cardColor,
+                    colors: kCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -123,10 +123,10 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: cardColor,
+            color: kCardColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity, //value equal to full width of screen
-            height: bottomContanierHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),

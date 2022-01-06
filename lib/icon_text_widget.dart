@@ -16,15 +16,15 @@ class ReusableIconTextWidget extends StatelessWidget {
       children: [
         Icon(
           iconImager,
-          size: imageiconSize,
+          size: kImageIconSize,
           color: Colors.amber[50],
         ),
         const SizedBox(
-          height: sizedBoxHeight,
+          height: kSizedBoxHeight,
         ),
         Text(
           iconLabel,
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         ),
       ],
     );
