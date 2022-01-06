@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-const double imageiconSize = 30;
-const double sizedBoxHeight = 20;
-const double labelTextFontSize = 18;
+import 'constants.dart';
 
 class ReusableIconTextWidget extends StatelessWidget {
   const ReusableIconTextWidget({
@@ -27,10 +24,7 @@ class ReusableIconTextWidget extends StatelessWidget {
         ),
         Text(
           iconLabel,
-          style: const TextStyle(
-            fontSize: labelTextFontSize,
-            fontWeight: FontWeight.bold,
-          ),
+          style: labelTextStyle,
         ),
       ],
     );

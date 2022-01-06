@@ -3,11 +3,8 @@ import 'package:line_icons/line_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/icon_text_widget.dart';
 import 'package:bmi/reusable_card_widget.dart';
+import 'constants.dart';
 
-const bottomContanierHeight = 80.0;
-Color cardColor = Colors.brown.shade700;
-Color activeCardColor = Colors.brown.shade600;
-Color inActiveCardColor = Colors.brown.shade700;
 enum GenderType {
   male,
   female,
@@ -82,14 +79,13 @@ class _InputPageState extends State<InputPage> {
             child: ReusableCard(
               onPress: () {},
               colors: cardColor,
-              cardChild: Row(
+              cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  FaIcon(
-                    Icons.male_sharp,
-                    size: 50,
+                  Text(
+                    'DATA',
+                    style: labelTextStyle,
                   ),
-                  Text("Male"),
                 ],
               ),
             ),
