@@ -6,7 +6,13 @@ const kBottomContainerHeight = 80.0;
 Color kCardColor = Colors.brown.shade700;
 Color kActiveCardColor = Colors.brown.shade600;
 Color kInActiveCardColor = Colors.brown.shade700;
-const kLabelTextStyle = TextStyle(
+final kLabelTextStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.bold,
+  color: Colors.blueGrey.shade50,
+);
+final kNumberStyling = TextStyle(
+  fontWeight: FontWeight.w900,
+  fontSize: 50,
+  color: Colors.blueGrey[50],
 );

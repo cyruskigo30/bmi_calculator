@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/icon_text_widget.dart';
 import 'package:bmi/reusable_card_widget.dart';
 import 'constants.dart';
@@ -11,6 +11,7 @@ enum GenderType {
   idle,
 }
 GenderType selectedGender = GenderType.idle;
+int height = 180;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -81,11 +82,52 @@ class _InputPageState extends State<InputPage> {
               colors: kCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    'DATA',
+                    'HEIGHT',
                     style: kLabelTextStyle,
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: kNumberStyling,
+                      ),
+                      const SizedBox(
+                        width: 1,
+                      ),
+                      Text('cm', style: kLabelTextStyle),
+                    ],
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 15),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 20),
+                      thumbColor: Colors.amber,
+                      activeTrackColor: Colors.amber.shade900,
+                      inactiveTrackColor: Colors.blueGrey[100],
+                      overlayColor: Colors.amber.withOpacity(.20),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(),
+                      min: 120,
+                      max: 220,
+
+                      // activeColor: Colors.white,
+                      // inactiveColor: Colors.blueGrey.shade100,
+                      // value passed by slider
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
