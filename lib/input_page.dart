@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_icons/line_icons.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi/icon_text_widget.dart';
@@ -12,6 +13,7 @@ enum GenderType {
 }
 GenderType selectedGender = GenderType.idle;
 int height = 180;
+int weight = 60;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -52,7 +54,7 @@ class _InputPageState extends State<InputPage> {
                         ? kActiveCardColor
                         : kInActiveCardColor,
                     cardChild: const ReusableIconTextWidget(
-                      iconImager: LineIcons.male,
+                      iconImager: Icons.male,
                       iconLabel: 'MALE',
                     ),
                   ),
@@ -68,7 +70,7 @@ class _InputPageState extends State<InputPage> {
                         ? kActiveCardColor
                         : kInActiveCardColor,
                     cardChild: const ReusableIconTextWidget(
-                      iconImager: LineIcons.female,
+                      iconImager: Icons.female,
                       iconLabel: 'FEMALE',
                     ),
                   ),
@@ -105,9 +107,9 @@ class _InputPageState extends State<InputPage> {
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       thumbShape:
-                          const RoundSliderThumbShape(enabledThumbRadius: 15),
+                          const RoundSliderThumbShape(enabledThumbRadius: 10),
                       overlayShape:
-                          const RoundSliderOverlayShape(overlayRadius: 20),
+                          const RoundSliderOverlayShape(overlayRadius: 15),
                       thumbColor: Colors.amber,
                       activeTrackColor: Colors.amber.shade900,
                       inactiveTrackColor: Colors.blueGrey[100],
@@ -141,9 +143,39 @@ class _InputPageState extends State<InputPage> {
                     colors: kCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(LineIcons.male),
-                        Text("Male"),
+                      children: [
+                        Text(
+                          "WEIGHT",
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberStyling,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              buttonIcon: FontAwesomeIcons.plus,
+                              customButtonColor: Colors.amber,
+                              onButtonPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                            const SizedBox(width: 10),
+                            RoundIconButton(
+                              buttonIcon: FontAwesomeIcons.minus,
+                              customButtonColor: Colors.amber.shade900,
+                              onButtonPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -154,9 +186,12 @@ class _InputPageState extends State<InputPage> {
                     colors: kCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(LineIcons.male),
-                        Text("Male"),
+                      children: [
+                        const Icon(FontAwesomeIcons.male),
+                        Text(
+                          "MALE",
+                          style: kLabelTextStyle,
+                        ),
                       ],
                     ),
                   ),
@@ -171,6 +206,34 @@ class _InputPageState extends State<InputPage> {
             height: kBottomContainerHeight,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  const RoundIconButton({
+    Key? key,
+    required this.buttonIcon,
+    required this.onButtonPressed,
+    required this.customButtonColor,
+  }) : super(key: key);
+  final IconData buttonIcon;
+  final onButtonPressed;
+  final Color customButtonColor;
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onButtonPressed,
+      child: Icon(buttonIcon),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
+      fillColor: customButtonColor,
+      elevation: 6.0,
+      constraints: const BoxConstraints.tightFor(
+        width: 56,
+        height: 56,
       ),
     );
   }
