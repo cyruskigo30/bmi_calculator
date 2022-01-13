@@ -14,6 +14,7 @@ enum GenderType {
 GenderType selectedGender = GenderType.idle;
 int height = 180;
 int weight = 60;
+int age = 19;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -80,7 +81,6 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              onPress: () {},
               colors: kCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +155,7 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(
+                            CustomRoundIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
                               customButtonColor: Colors.amber,
                               onButtonPressed: () {
@@ -165,7 +165,7 @@ class _InputPageState extends State<InputPage> {
                               },
                             ),
                             const SizedBox(width: 10),
-                            RoundIconButton(
+                            CustomRoundIconButton(
                               buttonIcon: FontAwesomeIcons.minus,
                               customButtonColor: Colors.amber.shade900,
                               onButtonPressed: () {
@@ -182,16 +182,42 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    onPress: () {},
                     colors: kCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(FontAwesomeIcons.male),
                         Text(
-                          "MALE",
+                          "AGE",
                           style: kLabelTextStyle,
                         ),
+                        Text(
+                          age.toString(),
+                          style: kNumberStyling,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CustomRoundIconButton(
+                              buttonIcon: FontAwesomeIcons.plus,
+                              customButtonColor: Colors.amber,
+                              onButtonPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                            const SizedBox(width: 10),
+                            CustomRoundIconButton(
+                              buttonIcon: FontAwesomeIcons.minus,
+                              customButtonColor: Colors.amber.shade900,
+                              onButtonPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -211,8 +237,8 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-  const RoundIconButton({
+class CustomRoundIconButton extends StatelessWidget {
+  const CustomRoundIconButton({
     Key? key,
     required this.buttonIcon,
     required this.onButtonPressed,
