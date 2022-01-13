@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:line_icons/line_icons.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:line_icons/line_icons.dart';
 import 'package:bmi/icon_text_widget.dart';
 import 'package:bmi/reusable_card_widget.dart';
 import 'constants.dart';
+import 'custom_square_icon_buttons.dart';
 
 enum GenderType {
   male,
@@ -155,7 +155,7 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CustomRoundIconButton(
+                            CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
                               customButtonColor: Colors.amber,
                               onButtonPressed: () {
@@ -165,7 +165,7 @@ class _InputPageState extends State<InputPage> {
                               },
                             ),
                             const SizedBox(width: 10),
-                            CustomRoundIconButton(
+                            CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.minus,
                               customButtonColor: Colors.amber.shade900,
                               onButtonPressed: () {
@@ -197,7 +197,7 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CustomRoundIconButton(
+                            CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
                               customButtonColor: Colors.amber,
                               onButtonPressed: () {
@@ -207,7 +207,7 @@ class _InputPageState extends State<InputPage> {
                               },
                             ),
                             const SizedBox(width: 10),
-                            CustomRoundIconButton(
+                            CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.minus,
                               customButtonColor: Colors.amber.shade900,
                               onButtonPressed: () {
@@ -232,34 +232,6 @@ class _InputPageState extends State<InputPage> {
             height: kBottomContainerHeight,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CustomRoundIconButton extends StatelessWidget {
-  const CustomRoundIconButton({
-    Key? key,
-    required this.buttonIcon,
-    required this.onButtonPressed,
-    required this.customButtonColor,
-  }) : super(key: key);
-  final IconData buttonIcon;
-  final onButtonPressed;
-  final Color customButtonColor;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onButtonPressed,
-      child: Icon(buttonIcon),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5),
-      ),
-      fillColor: customButtonColor,
-      elevation: 6.0,
-      constraints: const BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
       ),
     );
   }
