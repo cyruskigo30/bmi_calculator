@@ -8,7 +8,7 @@ class CustomSquareIconButton extends StatelessWidget {
     required this.customButtonColor,
   }) : super(key: key);
   final IconData buttonIcon;
-  final onButtonPressed;
+  final  onButtonPressed;
   final Color customButtonColor;
   @override
   Widget build(BuildContext context) {

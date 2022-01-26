@@ -1,5 +1,6 @@
+import 'package:bmi/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'input_page.dart';
+import 'pages/input_page.dart';
 
 void main() {
   runApp(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BMI Calculator',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.brown[800],
+        scaffoldBackgroundColor: primaryColor,
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
             color: Colors.white,
