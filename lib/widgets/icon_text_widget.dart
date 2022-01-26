@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:bmi/theme/text_styling.dart';
+
 import '../utils/constants.dart';
 
 class ReusableIconTextWidget extends StatelessWidget {

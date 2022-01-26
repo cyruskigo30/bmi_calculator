@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Color;
 
 const Color primaryColor = Color(0xff4E342E);
 const Color secondaryColor = Color(0xff5D4037);

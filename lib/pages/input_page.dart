@@ -1,10 +1,13 @@
+import 'package:flutter/material.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:bmi/theme/colors.dart';
+import 'package:bmi/theme/text_styling.dart';
 import 'package:bmi/utils/constants.dart';
+import 'package:bmi/widgets/custom_square_icon_buttons.dart';
 import 'package:bmi/widgets/icon_text_widget.dart';
 import 'package:bmi/widgets/reusable_card_widget.dart';
-import 'package:bmi/widgets/custom_square_icon_buttons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'
-    show FontAwesomeIcons;
-import 'package:flutter/material.dart';
 
 enum GenderType {
   male,
@@ -28,7 +31,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kCardColor,
+        backgroundColor: primaryColor,
         title: const Text(
           'BMI Calculator',
           style: TextStyle(
@@ -52,8 +55,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.male
-                        ? kActiveCardColor
-                        : kInActiveCardColor,
+                        ? tertiaryColor
+                        : secondaryColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: Icons.male,
                       iconLabel: 'MALE',
@@ -68,8 +71,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.female
-                        ? kActiveCardColor
-                        : kInActiveCardColor,
+                        ? tertiaryColor
+                        : secondaryColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: Icons.female,
                       iconLabel: 'FEMALE',
@@ -81,11 +84,11 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colors: kCardColor,
+              colors: secondaryColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
                   ),
@@ -110,10 +113,10 @@ class _InputPageState extends State<InputPage> {
                           const RoundSliderThumbShape(enabledThumbRadius: 10),
                       overlayShape:
                           const RoundSliderOverlayShape(overlayRadius: 15),
-                      thumbColor: Colors.amber,
-                      activeTrackColor: Colors.amber.shade900,
-                      inactiveTrackColor: Colors.blueGrey[100],
-                      overlayColor: Colors.amber.withOpacity(.20),
+                      thumbColor: supportColor,
+                      activeTrackColor: alertColor,
+                      inactiveTrackColor: lightGreyColor,
+                      overlayColor: supportColor.withOpacity(.20),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -140,7 +143,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colors: kCardColor,
+                    colors: secondaryColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -157,7 +160,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
-                              customButtonColor: Colors.amber,
+                              customButtonColor: supportColor,
                               onButtonPressed: () {
                                 setState(() {
                                   weight++;
@@ -167,7 +170,7 @@ class _InputPageState extends State<InputPage> {
                             const SizedBox(width: 10),
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.minus,
-                              customButtonColor: Colors.amber.shade900,
+                              customButtonColor: alertColor,
                               onButtonPressed: () {
                                 setState(() {
                                   weight--;
@@ -182,11 +185,11 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colors: kCardColor,
+                    colors: secondaryColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "AGE",
                           style: kLabelTextStyle,
                         ),
@@ -199,7 +202,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
-                              customButtonColor: Colors.amber,
+                              customButtonColor: supportColor,
                               onButtonPressed: () {
                                 setState(() {
                                   age++;
@@ -209,7 +212,7 @@ class _InputPageState extends State<InputPage> {
                             const SizedBox(width: 10),
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.minus,
-                              customButtonColor: Colors.amber.shade900,
+                              customButtonColor: alertColor,
                               onButtonPressed: () {
                                 setState(() {
                                   age--;
@@ -226,7 +229,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: kCardColor,
+            color: secondaryColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity, //value equal to full width of screen
             height: kBottomContainerHeight,

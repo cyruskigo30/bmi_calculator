@@ -1,5 +1,7 @@
-import 'package:bmi/theme/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'package:bmi/theme/colors.dart';
+
 import 'pages/input_page.dart';
 
 void main() {
@@ -21,12 +23,12 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: primaryColor,
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
-            color: Colors.white,
+            color: whiteColor,
           ),
         ),
         textTheme: const TextTheme(
           bodyText2: TextStyle(
-            color: Colors.white,
+            color: whiteColor,
             fontSize: 18,
           ),
         ),
