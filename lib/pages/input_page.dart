@@ -1,19 +1,18 @@
-import 'package:flutter/material.dart';
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:bmi/theme/colors.dart';
 import 'package:bmi/theme/text_styling.dart';
 import 'package:bmi/utils/constants.dart';
 import 'package:bmi/widgets/custom_square_icon_buttons.dart';
 import 'package:bmi/widgets/icon_text_widget.dart';
 import 'package:bmi/widgets/reusable_card_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum GenderType {
   male,
   female,
   idle,
 }
+
 GenderType selectedGender = GenderType.idle;
 int height = 180;
 int weight = 60;
@@ -31,7 +30,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         title: const Text(
           'BMI Calculator',
           style: TextStyle(
@@ -55,7 +54,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.male
-                        ? tertiaryColor
+                        ? alertColor
                         : secondaryColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: Icons.male,
@@ -71,7 +70,7 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colors: selectedGender == GenderType.female
-                        ? tertiaryColor
+                        ? alertColor
                         : secondaryColor,
                     cardChild: const ReusableIconTextWidget(
                       iconImager: Icons.female,
@@ -104,7 +103,7 @@ class _InputPageState extends State<InputPage> {
                       const SizedBox(
                         width: 1,
                       ),
-                      Text('cm', style: kLabelTextStyle),
+                      const Text('cm', style: kLabelTextStyle),
                     ],
                   ),
                   SliderTheme(
@@ -116,16 +115,12 @@ class _InputPageState extends State<InputPage> {
                       thumbColor: supportColor,
                       activeTrackColor: alertColor,
                       inactiveTrackColor: lightGreyColor,
-                      overlayColor: supportColor.withOpacity(.20),
+                      overlayColor: alertColor.withOpacity(.20),
                     ),
                     child: Slider(
                       value: height.toDouble(),
                       min: 120,
                       max: 220,
-
-                      // activeColor: Colors.white,
-                      // inactiveColor: Colors.blueGrey.shade100,
-                      // value passed by slider
                       onChanged: (double newValue) {
                         setState(() {
                           height = newValue.round();
@@ -147,7 +142,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "WEIGHT",
                           style: kLabelTextStyle,
                         ),
@@ -160,7 +155,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
-                              customButtonColor: supportColor,
+                              customButtonColor: alertColor,
                               onButtonPressed: () {
                                 setState(() {
                                   weight++;
@@ -202,7 +197,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             CustomSquareIconButton(
                               buttonIcon: FontAwesomeIcons.plus,
-                              customButtonColor: supportColor,
+                              customButtonColor: alertColor,
                               onButtonPressed: () {
                                 setState(() {
                                   age++;
@@ -229,10 +224,26 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: secondaryColor,
+            decoration: const BoxDecoration(
+              color: alertColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(100),
+                topRight: Radius.circular(100),
+              ),
+            ),
             margin: const EdgeInsets.only(top: 10),
-            width: double.infinity, //value equal to full width of screen
             height: kBottomContainerHeight,
+            //value equal to full width of screen
+            width: double.infinity,
+            child: const Center(
+              child: Text(
+                'CALCULATE',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
           ),
         ],
       ),
