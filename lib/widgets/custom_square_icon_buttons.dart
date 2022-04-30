@@ -8,7 +8,7 @@ class CustomSquareIconButton extends StatelessWidget {
     required this.customButtonColor,
   }) : super(key: key);
   final IconData buttonIcon;
-  final  onButtonPressed;
+  final onButtonPressed;
   final Color customButtonColor;
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,11 @@ class CustomSquareIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       fillColor: customButtonColor,
-      elevation: 6.0,
       constraints: const BoxConstraints.tightFor(
         width: 56,
         height: 56,
       ),
+      // elevation: 2.0,
     );
   }
 }

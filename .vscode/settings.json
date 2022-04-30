@@ -21,5 +21,8 @@
     "titleBar.inactiveBackground": "#bc7dd499",
     "titleBar.inactiveForeground": "#15202b99"
   },
-  "peacock.color": "#bc7dd4"
+  "peacock.color": "#bc7dd4",
+  "cSpell.words": [
+    "Comfortaa"
+  ]
 }

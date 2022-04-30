@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:bmi/theme/text_styling.dart';
-
 import '../utils/constants.dart';
 
 class ReusableIconTextWidget extends StatelessWidget {
   const ReusableIconTextWidget({
     Key? key,
-    required this.iconImager,
+    required this.genderIcon,
     required this.iconLabel,
   }) : super(key: key);
-  final IconData iconImager;
+  final IconData genderIcon;
   final String iconLabel;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class ReusableIconTextWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
-          iconImager,
+          genderIcon,
           size: kImageIconSize,
           color: Colors.amber[50],
         ),
