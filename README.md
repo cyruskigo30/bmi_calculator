@@ -2,7 +2,7 @@
 
 A flutter application that calculates your Body Mass Index.
 
-<img src="images/screen0.png" width="200"> <img src="images/screen1.png" width="200"> <img src="images/screen2.png" width="200"> <img src="images/screen3.png" width="200"> <img src="images/screen4.png" width="200"><img src="images/screen5.png" width="200">
+<img src="images/screen0.png" width="200"><img src="images/screen1.png" width="200"><img src="images/screen2.png" width="200"><img src="images/screen3.png" width="200"><img src="images/screen4.png" width="200"><img src="images/screen5.png" width="200">
 
 ## Getting Started
 
