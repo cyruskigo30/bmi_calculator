@@ -5,7 +5,7 @@ A flutter application that calculates your Body Mass Index.
 <img src="images/screen0.png" width="200"><img src="images/screen1.png" width="200"><img src="images/screen2.png" width="200"><img src="images/screen3.png" width="200"><img src="images/screen4.png" width="200"><img src="images/screen5.png" width="200">
 
 ## Project Details
-This project is a starting point for a Flutter application.
+having studied the flutter and dart ecosystem for a month, this was my first project.
 
 A few resources to get you started if this is your first Flutter project:
 
