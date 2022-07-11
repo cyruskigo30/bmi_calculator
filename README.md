@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-![](images/screen1.png)
+![](images/screen1.png)![](images/screen2.png)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
