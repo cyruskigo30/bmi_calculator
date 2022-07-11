@@ -1,7 +1,7 @@
 # bmi
 
 A new Flutter project.
-<img src="images/screen1.png">
+<img src="images/screen1.png" width="100" height ="50">
 ![](images/screen1.png)![](images/screen2.png)
 ## Getting Started
 
