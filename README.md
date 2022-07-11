@@ -12,7 +12,7 @@ Having studied the flutter and dart ecosystem for a month, this was my first pro
 A few resources to get you started if this is your first Flutter project:
 
 - [Flutter](https://flutter.dev)
-- [Dart:](https://dart.dev)
+- [Dart](https://dart.dev)
 
 For help getting started with Flutter, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
