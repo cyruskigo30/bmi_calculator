@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:bmi/utils/constants.dart';
-import 'package:bmi/widgets/reusable_card_widget.dart';
-
-import '../theme/colors.dart';
+import '../utils/constants.dart';
 import '../widgets/bottom_button.dart';
+import '../widgets/reusable_card_widget.dart';
+import '../theme/colors.dart';
 
 class BmiResultsPage extends StatelessWidget {
   const BmiResultsPage({
@@ -75,7 +74,7 @@ class BmiResultsPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: bottomButton(
+            child: BottomButton(
               onTap: () {
                 Navigator.pop(context);
               },

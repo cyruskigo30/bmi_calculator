@@ -1,12 +1,13 @@
-import 'package:bmi/functions/bmi_calculator.dart';
-import 'package:bmi/pages/results_page.dart';
-import 'package:bmi/theme/colors.dart';
-import 'package:bmi/utils/constants.dart';
-import 'package:bmi/widgets/custom_square_icon_buttons.dart';
-import 'package:bmi/widgets/icon_text_widget.dart';
-import 'package:bmi/widgets/reusable_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../functions/bmi_calculator.dart';
+import 'results_page.dart';
+import '../theme/colors.dart';
+import '../utils/constants.dart';
+import '../widgets/custom_square_icon_buttons.dart';
+import '../widgets/icon_text_widget.dart';
+import '../widgets/reusable_card_widget.dart';
 import '../widgets/bottom_button.dart';
 
 ///create an enum to hold the gender types///
@@ -156,7 +157,7 @@ class _InputPageState extends State<InputPage> {
                     onPress: () {},
                     reusableCardColor: kSecondaryColor,
                     reusableCardChild: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -191,7 +192,7 @@ class _InputPageState extends State<InputPage> {
                                 },
                               ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -243,7 +244,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          bottomButton(
+          BottomButton(
             buttonText: 'CALCULATE',
             onTap: () {
               BmiCalculator calculate = BmiCalculator(

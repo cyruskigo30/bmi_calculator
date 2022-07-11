@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
 
-class bottomButton extends StatelessWidget {
-  const bottomButton({
+class BottomButton extends StatelessWidget {
+  const BottomButton({
     Key? key,
     required this.onTap,
     required this.buttonText,
