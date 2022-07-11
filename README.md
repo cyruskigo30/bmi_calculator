@@ -2,6 +2,7 @@
 
 A new Flutter project.
 <img src="images/screen1.png" width="200">
+<img src="images/screen2.png" width="200">
 ![](images/screen1.png)![](images/screen2.png)
 ## Getting Started
 
