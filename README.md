@@ -1,9 +1,10 @@
-# bmi
+# BMI CALCULATOR
 
-A new Flutter project.
+A flutter application that calculates your Body Mass Index.
 <img src="images/screen1.png" width="200">
+
 <img src="images/screen2.png" width="200">
-![](images/screen1.png)![](images/screen2.png)
+<!-- ![](images/screen1.png)![](images/screen2.png) -->
 ## Getting Started
 
 This project is a starting point for a Flutter application.
